@@ -1,0 +1,48 @@
+@page
+@model TaskApp.Pages.TaskPages.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>task</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.task.OwnerId)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.task.OwnerId)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.task.taskTitle)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.task.taskTitle)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.task.taskDescription)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.task.taskDescription)
+        </dd>
+    </dl>
+</div>
+
+<div>
+    @if ((await AuthorizationService.AuthorizeAsync(User, Model.Contact,
+    ContactOperations.Update)).Succeeded)
+    {
+        <a asp-page="./Edit" asp-route-id="@Model.Contact.ContactId">Edit</a>
+        <text> | </text>
+    }
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.task.taskId">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

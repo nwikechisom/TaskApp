@@ -1,0 +1,9 @@
+@using Microsoft.AspNetCore.Identity
+@using TaskApp
+@using TaskApp.Data
+@namespace TaskApp.Pages
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using TaskApp.Authorizations;
+@using Microsoft.AspNetCore.Authorization
+@using TaskApp.Model
+@inject IAuthorizationService AuthorizationService

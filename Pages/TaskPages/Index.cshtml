@@ -1,0 +1,62 @@
+@page
+@model TaskApp.Pages.TaskPages.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.task[0].OwnerId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.task[0].taskTitle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.task[0].taskDescription)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.task) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.OwnerId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.taskTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.taskDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmpAssignedName)
+            </td>
+            
+            <td>
+                @if ((await AuthorizationService.AuthorizeAsync(
+                User, item, ContactOperations.Update)).Succeeded)
+                {
+                    <a asp-page="./Edit" asp-route-id="@item.taskId">Edit</a>
+                    <text> | </text>
+                }
+                <a asp-page="./Details" asp-route-id="@item.taskId">Details</a>
+                @if ((await AuthorizationService.AuthorizeAsync(
+                User, item, ContactOperations.Delete)).Succeeded)
+                {
+                    <text> | </text>
+                    <a asp-page="./Delete" asp-route-id="@item.taskId">Delete</a>
+                }
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
