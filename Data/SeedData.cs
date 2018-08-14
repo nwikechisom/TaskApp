@@ -65,32 +65,32 @@ namespace TaskApp.Data
             context.tasks.AddRange(
                 new task
                 {
-                    taskTitle = "Have Sex",
-                    taskDescription = "Slide in your dick in the ass and ride back and forth",
+                    taskTitle = "Create Flow Chart",
+                    taskDescription = "Build A flow network for the proposed app",
                     OwnerId = adminID
                 },
                 new task
                 {
-                    taskTitle = "Fetch Water",
-                    taskDescription = "Get to the borehole and put on the tap",
+                    taskTitle = "Creatw APIs",
+                    taskDescription = "Work with the flow chart and create API",
                     OwnerId = adminID
                 },
                 new task
                 {
-                    taskTitle = "Sing a song",
-                    taskDescription = "Open your mouth and make a beautiful sound from the depths of your belly",
+                    taskTitle = "UI Design",
+                    taskDescription = "Build a wireframe for the proposed project",
                     OwnerId = adminID
                 },
                 new task
                 {
-                    taskTitle = "Eat food",
-                    taskDescription = "Take a spoon, lift a portion of the food into your mouth, slowly so as to not choke",
+                    taskTitle = "Build UI",
+                    taskDescription = "Implement the wireframe using frontend development tools",
                     OwnerId = adminID
                 },
                 new task
                 {
-                    taskTitle = "Get a job",
-                    taskDescription = "send an application to a firm of your choice",
+                    taskTitle = "Call APIs",
+                    taskDescription = "using frontend frameworks call the created APIs into the UI",
                     OwnerId = adminID
                 }
              );
